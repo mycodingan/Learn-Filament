@@ -13,10 +13,12 @@ class DetailFaktur extends Model
 
     protected $guarded = [];
 
-    public function barang(){
-    return $this->belongsTo(Barang::class);
+    public function barang()
+    {
+        return $this->belongsTo(Barang::class);
     }
-    public function fakktur(){
-        return $this->belongsTo(FakturModel::class, 'id');
+    public function faktur()
+    {
+        return $this->belongsTo(FakturModel::class, 'faktur_id');   
     }
-}
+    }
