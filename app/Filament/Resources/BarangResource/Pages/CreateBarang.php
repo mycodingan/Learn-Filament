@@ -11,7 +11,7 @@ class CreateBarang extends CreateRecord
     protected static string $resource = BarangResource::class;
     protected function getRedirectUrl(): string
     {
-        return static::getResource()::getUrl('barang');
-
+        return $this->getResource()::getUrl('index');
     }
+    
 }

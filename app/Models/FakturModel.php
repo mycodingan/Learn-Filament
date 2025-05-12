@@ -18,7 +18,7 @@ class FakturModel extends Model
     protected $guarded = [];
 
     public function customer(){
-        return $this->belongsTo(CustomorModel::class);
+        return $this->belongsTo(CustomorModel::class,'cutomer_id');
     }
     public function detail(){
         return $this->hasMany(DetailFaktur::class, 'id');

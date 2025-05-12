@@ -14,4 +14,8 @@ class CustomorModel extends Model
     public function detail(){
         return $this->hasMany(DetailFaktur::class);
     }
+     public function faktur()
+    {
+        return $this->hasMany(FakturModel::class, 'cutomer_id');
+    }
 }

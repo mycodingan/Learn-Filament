@@ -11,19 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-            Schema::create('faktur', function (Blueprint $table){
-                $table->id();
-                $table->string('kode_faktur');
-                $table->date('tanggal_faktur');
-                $table->string('kode_cutomer');
-                $table->foreignId('cutomer_id')->constrained('cutomer', 'id')->cascadeOnUpdate()->cascadeOnDelete();
-                $table->text('ket_faktur')->nullable();
-                $table->integer('total');
-                $table->integer('nominal_charge');
-                $table->integer('total_final');
-                $table->softDeletes();
-                $table->timestamps();
-            });
+        Schema::create('faktur', function (Blueprint $table) {
+            $table->id();
+            $table->string('kode_faktur');
+            $table->date('tanggal_faktur');
+            $table->string('kode_cutomer');
+            $table->foreignId('cutomer_id')->constrained('cutomer')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->text('ket_faktur')->nullable();
+            $table->integer('total');
+            $table->integer('nominal_charge');
+            $table->integer('total_final');
+
+            $table->softDeletes();
+            $table->timestamps();
+        });
     }
 
     /**

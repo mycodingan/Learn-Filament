@@ -2,35 +2,28 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\CustomerResource\Pages;
-use App\Filament\Resources\CustomerResource\RelationManagers;
-use App\Models\Customer;
-use App\Models\CustomorModel;
+use App\Filament\Resources\DetailFakturResource\Pages;
+use App\Filament\Resources\DetailFakturResource\RelationManagers;
+use App\Models\DetailFaktur;
 use Filament\Forms;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class CustomerResource extends Resource
+class DetailFakturResource extends Resource
 {
-    protected static ?string $model = CustomorModel::class;
+    protected static ?string $model = DetailFaktur::class;
 
-    protected static ?string $navigationGroup = 'Customer';
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                TextInput::make('nama_customer'),
-                TextInput::make('kode_customer'),
-                TextInput::make('alamat_customer'),
-                TextInput::make('nomor_customer'),
+                //
             ]);
     }
 
@@ -38,10 +31,7 @@ class CustomerResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('nama_customer'),
-                TextColumn::make('kode_customer'),
-                TextColumn::make('alamat_customer'),
-                TextColumn::make('nomor_customer'),
+                //
             ])
             ->filters([
                 //
@@ -66,9 +56,9 @@ class CustomerResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListCustomers::route('/'),
-            'create' => Pages\CreateCustomer::route('/create'),
-            'edit' => Pages\EditCustomer::route('/{record}/edit'),
+            'index' => Pages\ListDetailFakturs::route('/'),
+            'create' => Pages\CreateDetailFaktur::route('/create'),
+            'edit' => Pages\EditDetailFaktur::route('/{record}/edit'),
         ];
     }
 }
